@@ -1,8 +1,6 @@
 package com.myclassacdl.onhout.geoquiz;
 
-/**
- * Created by Jay on 8/11/14.
- */
+
 public class TrueFalse {
     private int mQuestion;
 
