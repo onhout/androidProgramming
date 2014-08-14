@@ -2,6 +2,7 @@ package com.myclassacdl.onhout.geoquiz;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -16,6 +17,7 @@ public class CheatActivity extends Activity {
 
     private boolean mAnswerIsTrue;
 
+    private TextView buildVersion;
     private TextView mAnswerTextView;
     private Button mShowAnswer;
 
@@ -25,10 +27,16 @@ public class CheatActivity extends Activity {
         setResult(RESULT_OK, data);
     }
 
+    private  void getBuildVersion(){
+        buildVersion = (TextView) findViewById(R.id.buildVersion);
+        buildVersion.setText("Current API: " + Build.VERSION.SDK_INT);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cheat);
+        getBuildVersion();
 
         mAnswerIsTrue = getIntent().getBooleanExtra(EXTRA_ANSWER_IS_TRUE, false);
         setAnswerShownResult(false);
